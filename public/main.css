@@ -1,0 +1,148 @@
+#login{
+  background: rgba(#463f4a, 0.76);
+  margin:180px 10px 10px 10px;
+  padding: 20px;
+}
+
+.fa-check-circle-o{
+  padding-left: 10px;
+  color: green;
+}
+
+#btn-send{
+  background: #337ab7;
+  color: white;
+}
+
+#member{
+  height: 300px;
+}
+
+#listMem{
+  height: 300px;
+  overflow :auto;
+}
+#version{
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+#chuthich{
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+#logout{
+  float: right;
+  margin-right:20px;
+  margin-bottom: 10px;
+}
+
+#chatbox{
+  display: none;
+}
+.clear-fix{
+  clear: both;
+}
+
+.time{
+  position: absolute;
+  right: 0.25em;
+  font-size: 13px;
+  font-family: 'PT Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#inputmessage{
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: none;
+}
+
+
+/*khung chat*/
+.including:before, .including:after {content: " ";display: table;}
+.including:after {clear: both;}
+.including:before, .including:after {content: " ";display: table;}
+.including:after {clear: both;}
+
+#listMessages {
+    height: 500px;
+    overflow: auto;
+    border: 1px solid #337ab7;
+    border-radius: 5%;
+    padding: 10px;
+}
+
+
+.message-group {
+    clear: both;
+    position: relative;
+    margin-bottom: 15px;
+}
+.message-avatar {
+    position: absolute;
+    bottom: 2px;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+.message-body {
+    margin-left: 50px;
+}
+.message {
+    clear: left;
+    background-color: #eee;
+    margin-bottom: 3px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #333;
+    max-width: 60%;
+    float: left;
+    word-wrap: break-word;
+}
+
+.message.bottom {
+    border-bottom-left-radius: 0;
+}
+.message.top {
+    border-top-left-radius: 0;
+}
+.message-group.me .message.bottom {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 0;
+}
+.message-group.me .message.top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0;
+}
+
+.message-group.me .message {
+    background-color: #0084ff;
+    color: #fff;
+    clear: right;
+    float: right;
+}
+.message-group.me .message-body {
+    margin-right: 0px;
+}
+
+.message-username {
+    color: #898989;
+    font-size: 14px;
+    margin: 0 0 5px 0px;
+    font-weight: normal;
+}
+
+.typing {
+    position: relative;
+    margin-bottom: 15px;
+}
+.typing .typing-body {
+    margin-left: 50px;
+}
+.typing .typing-image {
+    height: 40px;
+    margin-right: 5px;
+}

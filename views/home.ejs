@@ -1,0 +1,128 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Webchat</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Quicksand|Ubuntu" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div id="login">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-4 col-sm-push-4 text-center">
+              <h1>Login</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-lg-push-4 col-md-4 col-md-push-4 col-sm-4 col-sm-push-4 text-center">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-comment"></i></div>
+                    <input type="text" class="form-control" id="yourName" placeholder="Your Name" required>
+                  </div>
+                </div>
+              <button type="button" id="btn-submit" class="btn btn-primary btn-lg">Đăng Ký</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="chatbox">
+        <!-- day la phan navbar -->
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">WebChat</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <!-- id currentUser da lay socket.username gan vao luc dang nhap thanh cong -->
+                <li><a href="">Xin chào <span  id="currentUser"></span></a></li>
+                <li class="dropdown" id="btn-logout">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Thoát</a>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <!-- ket thuc navbar -->
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Phòng (Coming soon)</h3>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">Phòng 1</li>
+              <li class="list-group-item">Phòng 2</li>
+              <li class="list-group-item">Phòng 3</li>
+              <li class="list-group-item">Phòng 4</li>
+              <li class="list-group-item">Phòng 5</li>
+            </ul>
+          </div>
+        </div>
+        <div class=" col-lg-6 col-md-6 col-sm-6" >
+          <div class="content-chat" id="listMessages">
+            <!-- phan nay de them mang danh sach tin nhan socket trả ve -->
+            <!-- <div class="typing">
+                <img src="images/no-avatar.png" class="message-avatar" />
+                <div class="message-body">
+                  <h4 class="message-username">nguyenchanhdai</h4>
+                  <img src="images/typing.gif" class="typing-image" />
+                </div>
+            </div> -->
+          </div>
+          <div id="inputmessage">
+            <img src="images/typing.gif" class="typing-image" width="40"/>
+          </div>
+          <div class="col-lg-12">
+            <div class="input-group">
+              <input type="text" class="form-control" id="textMessage"  placeholder="Chat ở đây nè !!!!">
+              <span class="input-group-addon" id="btn-send"><i class="glyphicon glyphicon-send"></i></span>
+            </div>
+          </div>
+          <div class="clear-fix"></div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <div id="member">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">Thành Viên</h3>
+              </div>
+              <ul class="list-group" id="listMem">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <div id="version">
+          <h5>Copyright &copy 2017 by RainNovember ,Version 1.0.0</h5>
+        </div>
+        <div id="chuthich">
+          <h5>Webchat : NodeJS + Socket.io </h5>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="https://rainnovember.herokuapp.com/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</html>
